@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SolDot</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter, Arial, sans-serif;
+}
+
+body{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(
+135deg,
+#0f172a,
+#111827,
+#1e293b
+);
+overflow:hidden;
+}
+
+.bg{
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 20% 20%, rgba(59,130,246,.25), transparent 25%),
+radial-gradient(circle at 80% 30%, rgba(16,185,129,.2), transparent 25%),
+radial-gradient(circle at 50% 80%, rgba(139,92,246,.2), transparent 25%);
+filter:blur(40px);
+}
+
+.card{
+position:relative;
+z-index:2;
+width:min(92%,380px);
+padding:32px;
+border-radius:24px;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.08);
+text-align:center;
+}
+
+.logo{
+width:90px;
+height:90px;
+object-fit:contain;
+margin-bottom:18px;
+}
+
+h1{
+color:white;
+font-size:28px;
+margin-bottom:8px;
+}
+
+p{
+color:#94a3b8;
+font-size:14px;
+margin-bottom:24px;
+}
+
+input{
+width:100%;
+padding:14px;
+margin-bottom:12px;
+border:none;
+outline:none;
+border-radius:12px;
+background:rgba(255,255,255,.08);
+color:white;
+}
+
+input::placeholder{
+color:#94a3b8;
+}
+
+button{
+width:100%;
+padding:14px;
+border:none;
+border-radius:12px;
+background:#3b82f6;
+color:white;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:translateY(-2px);
+}
+
+.footer{
+margin-top:18px;
+font-size:12px;
+color:#64748b;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="card">
+
+<img src="YOUR_LOGO_URL_HERE" class="logo">
+
+<h1>SolDot</h1>
+
+<p>Simple. Fast. Secure.</p>
+
+<input type="email" placeholder="Email">
+
+<input type="password" placeholder="Password">
+
+<button>Login</button>
+
+<div class="footer">
+Powered by SolDot
+</div>
+
+</div>
+
+</body>
+</html>
