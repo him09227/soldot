@@ -5,12 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SolDot</title>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <style>
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Inter, Arial, sans-serif;
+font-family:Arial,sans-serif;
 }
 
 body{
@@ -18,12 +20,7 @@ min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background:linear-gradient(
-135deg,
-#0f172a,
-#111827,
-#1e293b
-);
+background:linear-gradient(135deg,#0f172a,#111827,#1e293b);
 overflow:hidden;
 }
 
@@ -60,17 +57,16 @@ box-shadow:
 0 0 25px rgba(34,211,238,.4),
 0 0 50px rgba(168,85,247,.3);
 }
-  
+
 h1{
 color:white;
-font-size:28px;
-margin-bottom:8px;
+font-size:40px;
+margin-bottom:10px;
 }
 
 p{
 color:#94a3b8;
-font-size:14px;
-margin-bottom:24px;
+margin-bottom:20px;
 }
 
 input{
@@ -84,10 +80,6 @@ background:rgba(255,255,255,.08);
 color:white;
 }
 
-input::placeholder{
-color:#94a3b8;
-}
-
 button{
 width:100%;
 padding:14px;
@@ -95,17 +87,12 @@ border:none;
 border-radius:12px;
 background:#3b82f6;
 color:white;
-font-weight:600;
+font-size:16px;
 cursor:pointer;
-transition:.3s;
-}
-
-button:hover{
-transform:translateY(-2px);
 }
 
 .footer{
-margin-top:18px;
+margin-top:15px;
 font-size:12px;
 color:#64748b;
 }
@@ -124,17 +111,50 @@ color:#64748b;
 
 <p>Simple. Fast. Secure.</p>
 
-<input type="email" placeholder="Email">
+<input id="email" type="email" placeholder="Email">
 
-<input type="password" placeholder="Password">
+<input id="password" type="password" placeholder="Password">
 
-<button>Login</button>
+<button onclick="login()">Login</button>
 
 <div class="footer">
 Powered by SolDot
 </div>
 
 </div>
+
+<script>
+
+const supabaseUrl = "https://iyokzqcblzqfjasyupzt.supabase.co";
+
+const supabaseKey = "PASTE_YOUR_PUBLISHABLE_KEY_HERE";
+
+const supabase = window.supabase.createClient(
+supabaseUrl,
+supabaseKey
+);
+
+async function login(){
+
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+
+const { data, error } =
+await supabase.auth.signInWithPassword({
+email,
+password
+});
+
+if(error){
+alert(error.message);
+return;
+}
+
+alert("Login Successful 🚀");
+
+}
+
+</script>
 
 </body>
 </html>
